@@ -19,18 +19,48 @@ jobs:
     needs: Dependencies
     runs-on: ubuntu-latest
     steps:
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: | 
+          npm ci
+          echo "Success!!"
       - name: Lint the code
         run: npm run lint
   Test:
     needs: Lint
     runs-on: ubuntu-latest
     steps:
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: | 
+          npm ci
+          echo "Success!!"
       - name: Test the code
         run: npm run test
   Build:
     needs: Test
     runs-on: ubuntu-latest
     steps:
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: | 
+          npm ci
+          echo "Success!!"
       - name: Build the code
         run: npm run build
   Deploy:
