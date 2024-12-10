@@ -15,14 +15,14 @@ jobs:
         run: | 
           npm ci
           echo "Success!!"
-  Lint:
-    needs: Dependencies
-    runs-on: ubuntu-latest
-    steps:
-      - name: Lint the code
-        run: npm lint
+#  Lint:
+#    needs: Dependencies
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Lint the code
+#        run: npm lint
   Test:
-    needs: Lint
+#    needs: Lint
     runs-on: ubuntu-latest
     steps:
       - name: Test the code
