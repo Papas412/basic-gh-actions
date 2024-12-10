@@ -22,7 +22,7 @@ jobs:
 #      - name: Lint the code
 #        run: npm lint
   Test:
-#    needs: Lint
+    needs: Dependencies
     runs-on: ubuntu-latest
     steps:
       - name: Test the code
