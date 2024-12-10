@@ -1,7 +1,22 @@
 name: Test and Deploy
 on: push
 jobs: 
+  Dependencies:
+    name: Getting dependencies
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+      - name: Install NodeJS
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Install dependencies
+        run: | 
+          npm ci
+          echo "Success!!"
   Lint:
+    needs: Dependencies
     runs-on: ubuntu-latest
     steps:
       - name: Lint the code
